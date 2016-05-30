@@ -1,28 +1,24 @@
-int xPos,yPos,xChange,yChange;
-boolean normal, expand, dead;
-void Ball() {
-  xPos = (int)Math.random() * 500;
-  yPos = (int)Math.random() * 500;
-  xChange = (int)Math.random() * 20;
-  yChange = (int)Math.random() * 20;
-  normal = true;
-  expand = false;
-  dead = false;
-}
+int resX = 1024;
+int resY = 760;
 
-void move() {
-  if (normal){
-    xPos += xChange;
-    yPos += yChange;
-    if (xPos <= 0 ){
-      xChange *= -1;
-    }
-    if (yPos <= 0){
-      yChange *= -1;
-    }
+class Baller
+{
+  float posX, posY, velX, velY;
+  Baller()
+  {
+    posX = random(1,50);
+    posY = random(1,50);
+    velX = random(1,50);
+    velY = random(1,50);
   }
-}
-
-void display() {
-  ellipse(xPos,yPos,50,50);
+  void update()
+  {
+    if (posX >= resX || posX <= 0)
+      velX = -velX;
+    if (posY >= resY || posY <= 0)
+      velY = -velY;
+    posX += velX;
+    posY += velY;
+    ellipse(posX, posY, 100, 100);
+  }
 }

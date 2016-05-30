@@ -1,15 +1,17 @@
-Ball[] balls;
 
-void setup() {
-  size(500,500);
-  background(255);
-  balls = new Ball[10];
+Baller[] balls = {new Baller(), new Baller()};
+
+void setup()
+{
+  size(1024,760);
+  background(0);
 }
 
-void draw() {
-  clear();
-  for (Ball a:balls){
-    a.move();
-    a.display();
+void draw()
+{
+  background(0);
+  for (Baller b : balls)
+  {
+    b.update();
   }
 }
